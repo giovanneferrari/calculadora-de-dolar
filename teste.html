@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Taxa de 14% - Restaurante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calcular Taxa de 14%</h2>
+    <label for="valorConta">Valor da Conta (R$):</label>
+    <input type="number" id="valorConta" step="0.01" min="0">
+    <button onclick="calcularTaxa()">Calcular</button>
+
+    <div class="result">
+        <p id="taxaServico"></p>
+        <p id="valorTotal"></p>
+    </div>
+</div>
+
+<script>
+    function calcularTaxa() {
+        const valorConta = parseFloat(document.getElementById('valorConta').value);
+        const taxaServico = valorConta * 0.14;
+        const valorTotal = valorConta + taxaServico;
+
+        document.getElementById('taxaServico').textContent = `Taxa de serviço (14%): R$ ${taxaServico.toFixed(2)}`;
+        document.getElementById('valorTotal').textContent = `Valor total a ser pago: R$ ${valorTotal.toFixed(2)}`;
+    }
+</script>
+
+</body>
+</html>
