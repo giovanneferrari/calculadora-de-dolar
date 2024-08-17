@@ -33,14 +33,14 @@ async function converterMoeda() {
 
         let resultado;
         if (conversionType === "BRLtoUSD") {
-            const valorEmDolar = (valor / taxaDeCambio).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            const valorEmDolar = (valor / taxaDeCambio).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
             resultado = `R$ ${valor} equivale a $ ${valorEmDolar}`;
         } else {
-            const valorEmReais = (valor * taxaDeCambio).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            const valorEmReais = (valor * taxaDeCambio).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
             resultado = `$ ${valor} equivale a R$ ${valorEmReais}`;
         }
 
-        const taxaDeCambioFormatada = taxaDeCambio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const taxaDeCambioFormatada = taxaDeCambio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
         document.getElementById('resultado').textContent = resultado;
         document.getElementById('info').textContent = `Cotação atual: $ ${taxaDeCambioFormatada} (Atualizado em: ${dataCotacao}) \nFonte: Banco Central do Brasil (https://olinda.bcb.gov.br)`;
     } catch (error) {
