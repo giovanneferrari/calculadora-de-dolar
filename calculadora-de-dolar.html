@@ -4,29 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Moedas - Merck</title>
+    <link rel="icon" href="logo.png" type="image/png">
     <style>
+
         body {
             font-family: Optima, segoe UI;
             background-color: #503291;
             display: flex;
-            color: #503291;
-            text-align: center;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-image: url(background.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .calculator {
-            background-color: #2DBECD;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
         }
+
+        .calculator,
+            .history {
+                    background-color: #eb3c96;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                    width: 100%;
+                    margin-bottom: 20px;
+                    box-sizing: border-box;
+                    color: #503291;
+                }
 
         input,
         button,
@@ -59,26 +75,74 @@
             font-size: 14px;
             color: #333333;
         }
+
+        /* Estilização do box de histórico */
+        #historico-box {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #historico-box h4 {
+            text-align: center;
+            margin: 0 0 10px 0;
+        }
+
+        #historico-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: transparent;
+        }
+
+        #historico-table th,
+        #historico-table td {
+            border: 1px solid #503291;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #historico-table th {
+            background-color: #503291;
+            color: #fff;
+        }
+
+        #historico-table td {
+            background-color: #eb3c96;
+            color: #503291;
+
+        }
+        .calculator h1 {
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove margens padrão */
+    padding-bottom: 20px; /* Ajusta o espaçamento abaixo do título, se necessário */
+}
+
     </style>
 </head>
 <body>
-    <div class="calculator">
-        <h1>Conversor de Moeda</h1>
-        <input type="number" id="valor" placeholder="Digite o valor">
-        <select id="conversionType">
-            <option value="BRLtoUSD">Real para Dólar</option>
-            <option value="USDtoBRL">Dólar para Real</option>
-            <option value="BRLtoEUR">Real para Euro</option>
-            <option value="EURtoBRL">Euro para Real</option>
-        </select>
-        <button onclick="converterMoeda()">Converter</button>
-        <div class="result" id="resultado"></div>
-        <div class="info" id="info"></div>
-        <div class="history" id="historico"></div>
+    <div class="container">
+        <div class="calculator">
+            <h1>Conversor de Moeda</h1>
+            <input type="number" id="valor" placeholder="Digite o valor">
+            <select id="conversionType">
+                <option value="BRLtoUSD">Real para Dólar</option>
+                <option value="USDtoBRL">Dólar para Real</option>
+                <option value="BRLtoEUR">Real para Euro</option>
+                <option value="EURtoBRL">Euro para Real</option>
+            </select>
+            <button onclick="converterMoeda()">Converter</button>
+            <div class="result" id="resultado"></div>
+            <div class="info" id="info"></div>
+        </div>
+
+        <div class="history" id="historico-box">
+            <table id="historico-table">
+                <tbody id="historico">
+                    <!-- Os dados serão inseridos aqui pelo JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <script src='index.js'>
-    </script>
+    <script src='index.js'></script>
 </body>
-
 </html>
