@@ -1,72 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cálculo de Taxa de 14% - Restaurante</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="number"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      h2 {
+        font: Trebuchet, monospace;
+        color: #0056b3;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 0px;
+      }
+      #legenda {
+        color: rgb(114, 114, 114);
+        text-align: center;
+        display: block;
+      }
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      p {
+        color: rgb(0, 95, 219);
+        text-align: center;
+        margin-bottom: 0px;
+      }
+      input[type="number"] {
+        width: calc(100% - 25px);
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+      button {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .result {
+        font-size: 18px;
+        background-color: white;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      #taxaServico {
+        color: rgb(0, 0, 0);
+        text-align: center;
+      }
+      #valorTotal {
+        font-size: 20px;
+      }
     </style>
-</head>
-<body>
-
-<div class="container">
-    <h2>Calcular Taxa de 14%</h2>
-    <label for="valorConta">Valor da Conta (R$):</label>
-    <input type="number" id="valorConta" step="0.01" min="0">
-    <button onclick="calcularTaxa()">Calcular</button>
-
-    <div class="result">
-        <p id="taxaServico"></p>
-        <p id="valorTotal"></p>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Calcular Taxa Restaurante</h2>
+      <label id="legenda">Valor da Conta (R$):</label>
+      <input type="number" id="valorConta" step="1" min="0" />
+      <label id="legenda">em porcentagem</label>
+      <input type="number" id="TaxaRestaurante" max="100" step="0.01" min="0" />
+      <button onclick="calcularTaxa()">Calcular</button>
     </div>
-</div>
+    <div class="result">
+      <p id="taxaServico"></p>
+      <p id="valorTotal"></p>
+    </div>
 
-<script>
-    function calcularTaxa() {
-        const valorConta = parseFloat(document.getElementById('valorConta').value);
-        const taxaServico = valorConta * 0.14;
+    <script>
+      function calcularTaxa() {
+        const valorConta = Number(document.getElementById("valorConta").value);
+        const TaxaRestaurante = Number(
+          document.getElementById("TaxaRestaurante").value
+        );
+        const taxaServico = valorConta * calcularPorcentagem(TaxaRestaurante);
         const valorTotal = valorConta + taxaServico;
 
-        document.getElementById('taxaServico').textContent = `Taxa de serviço (14%): R$ ${taxaServico.toFixed(2)}`;
-        document.getElementById('valorTotal').textContent = `Valor total a ser pago: R$ ${valorTotal.toFixed(2)}`;
-    }
-</script>
-
-</body>
+        document.getElementById(
+          "taxaServico"
+        ).textContent = `Taxa de serviço de ${TaxaRestaurante}%: R$ ${taxaServico.toFixed(
+          2
+        )}`;
+        document.getElementById(
+          "valorTotal"
+        ).textContent = `Valor total a ser pago: R$ ${valorTotal.toFixed(2)}`;
+      }
+      function calcularPorcentagem(taxa) {
+        return taxa / 100;
+      }
+    </script>
+  </body>
 </html>
