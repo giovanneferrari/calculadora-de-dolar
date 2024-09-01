@@ -23,7 +23,17 @@ body {
   max-width: 500px;
 }
 
-.calculator,
+.calculator {
+  background-color: #eb3c96;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  color: #503291;
+}
+
 .history {
   background-color: #eb3c96;
   padding: 20px;
@@ -58,7 +68,9 @@ button:hover {
 
 .result {
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bolder;
 }
 
 .info {
@@ -80,6 +92,7 @@ button:hover {
 
 #historico-table {
   width: 100%;
+  text-align: center;
   border-collapse: collapse;
   background: transparent;
 }

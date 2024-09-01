@@ -18,15 +18,13 @@
           <option value="BRLtoEUR">Real para Euro</option>
           <option value="EURtoBRL">Euro para Real</option>
         </select>
-        <button onclick="converterMoeda()">Converter</button>
+        <button id="botão" onclick="converterMoeda()">Converter</button>
         <div class="result" id="resultado"></div>
         <div class="info" id="info"></div>
       </div>
-      <div class="history" id="historico-box">
+      <div class="history" id="historico-box" style="display: none">
         <table id="historico-table">
-          <tbody id="historico">
-            <!-- Os dados serão inseridos aqui pelo JavaScript -->
-          </tbody>
+          <tbody id="historico"></tbody>
         </table>
       </div>
     </div>
